@@ -1,0 +1,7 @@
+.widget {
+    width: 300px;
+    height: 300px;
+    border: 1px solid blue;
+    margin: 25px 25px 25px 25px;
+    padding: 25px 25px 25px 25px;
+}
