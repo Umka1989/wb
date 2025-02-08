@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS public.report(
 	id uuid ,
 	product_name varchar(250),
 	article varchar(250),
+	size_name varchar(100),
     marketplace varchar(4) NOT NULL,
     main_storage integer,
 	count_siberia integer,
