@@ -1,0 +1,1 @@
+select * from report where marketplace = '{0}'
