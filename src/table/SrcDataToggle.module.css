@@ -1,0 +1,9 @@
+.button{
+    border: 1px solid black;
+}
+
+.selectionButton{
+    "TODO поменять этот класс на активный и неактивный классы кнопки"
+    border: 1px solid black;
+}
+
