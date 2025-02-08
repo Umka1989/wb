@@ -1,5 +1,5 @@
 insert into report (
-select id, article, product_name, 'ozon',
+select id, article, product_name, size_name, 'ozon',
 (select sum(c.quantity) from assets_1c as c
 where c.article = p.article),
 (select sum(a.avalible_to_sale) from assets_ozon as a
@@ -26,7 +26,7 @@ where cluster = 'Санкт-Петербург и СЗО' and a.article = p.arti
 where cluster = 'Поволжье' and a.article = p.article)
 from products as p
 union
-select id, article, product_name, 'wb',
+select id, article, product_name, size_name, 'wb',
 (select sum(c.quantity) from assets_1c as c
 where c.article = p.article),
 (select sum(wb.available_for_sale) from assets_wb as wb, clasters as cl
