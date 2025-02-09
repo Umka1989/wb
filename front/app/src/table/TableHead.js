@@ -1,12 +1,13 @@
+import './Table.css';
 
 function TableHead (props){
     let headers = [];
     props.headers.forEach((each)=>{
-        headers.push(<th>{each}</th>)
+        headers.push(<th className={'th'}>{each}</th>)
     })
 
     return (
-       <thead>
+       <thead className={'thead'}>
         <tr>{headers}</tr>
        </thead>
     )

@@ -1,24 +1,40 @@
-import React from 'react';
-import {useState} from 'react';
-import './SrcDataToggle.css';
+import '../Main.css';
+import styles from "./SrcDataToggle.module.css";
+import OpenColumnsList from "./OpenColumnsList";
 
 
-function SrcDataToggle (props){
+function SrcDataToggle (props) {
 
-    const [whichActive, setActive] = useState('left');
+    const handleClick = (event) => {
+        props.setSelectedData(event.target.value);
+    }
 
     return (
-       <div>
-           <div
-               className={ whichActive === 'left' ? 'leftActiveButton' : 'leftInactiveButton' }
-               onClick={() => setActive(whichActive === 'left' ? 'right' : 'left')}
-           >Остатки</div>
-           <div
-               className={ whichActive === 'right' ? 'rightActiveButton' : 'rightInactiveButton' }
-               onClick={() => setActive(whichActive === 'left' ? 'right' : 'left')}
-           >Продажи</div>
-           <div className={'clearFix'}></div>
-       </div>
+        <div>
+            <div className={'left'}>
+                <button
+                    className={styles.selectionButton}
+                    value='ozon'
+                    onClick={handleClick}
+                >Ozon</button>
+                <button
+                    className={styles.selectionButton}
+                    value='wb'
+                    onClick={handleClick}
+                >WB</button>
+            </div>
+            <div className={'right'}>
+                <button
+                    className={styles.button}
+                >Столбцы</button>
+                <div>
+                    <button className={styles.button}>Фильтры</button>
+                    <OpenColumnsList />
+                </div>
+                <button className={styles.button}>Скачать</button>
+            </div>
+            <div className={'clearFix'}></div>
+        </div>
     )
 }
 

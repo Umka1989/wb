@@ -1,30 +1,29 @@
+import React, {useState, useEffect} from 'react';
+
 import AdminAudit from "./AdminAudit";
 import AdminUsers from "./AdminUsers";
 import AdminDataUpload from "./AdminDataUpload";
+import SectionPicker from './SectionPicker';
 
 
 function AdminBlock(props){
+
+    const [selectedSection, setSection] = useState();
+
+    let componentToRender;
+
+    if (selectedSection === 'audit'){
+        componentToRender = <AdminAudit setSection={setSection}/>
+    } else if (selectedSection === 'users'){
+        componentToRender = <AdminUsers setSection={setSection}/>
+    } else if (selectedSection === 'upload'){
+        componentToRender = <AdminDataUpload setSection={setSection}/>
+    } else {
+        componentToRender = <SectionPicker setSection={setSection}/>
+    }
+
     return (
-        <ul>
-            <li>
-                <div>
-                    <div>Пользователей</div>
-                    <img></img>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <div>Загрузка данных</div>
-                    <img></img>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <div>Аудит</div>
-                    <img></img>
-                </div>
-            </li>
-        </ul>
+        <div>{componentToRender}</div>
     )
 }
 

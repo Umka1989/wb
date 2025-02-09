@@ -1,3 +1,4 @@
+import './Table.css';
 
 function TableBody (props){
     let rows = [];
@@ -5,7 +6,7 @@ function TableBody (props){
     props.data.forEach((row)=>{
         let tableRow = [];
         row.forEach((each)=>{
-            tableRow.push(<td>{each}</td>)
+            tableRow.push(<td className={'td'}>{each}</td>)
         })
         rows.push(<tr>{tableRow}</tr>)
     })

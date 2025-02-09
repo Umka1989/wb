@@ -1,8 +1,10 @@
+import BackButton from './BackButton';
 
 function AdminDataUpload (props){
     return (
        <div>
-           AdminDataUpload
+           <BackButton setSection={props.setSection}/>
+           <div>AdminDataUpload</div>
        </div>
     )
 }

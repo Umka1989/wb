@@ -1,6 +1,6 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
-import styles from "./Table.module.css";
+import './Table.css'
 
 function Table (props){
     let headers = [];
@@ -10,7 +10,7 @@ function Table (props){
         data = props.tableData.data;
     }
     return (
-        <table>
+        <table className={'table'}>
             <TableHead headers={headers}/>
             <TableBody data={data}/>
         </table>

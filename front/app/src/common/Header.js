@@ -13,6 +13,7 @@ function Header (props){
            <HeaderOption route={'/view_report'} title={'Исходные данные'}/>
            <HeaderOption route={'/dashboard'} title={'Отчёт'}/>
            <HeaderOption route={'/upload_data'} title={'Загрузить данные'}/>
+           <HeaderOption route={'/admin'} title={'Админка'}/>
            <div className={userInfoClassNames}>Данные о пользователе</div>
            <div className={'clearFix'}></div>
        </div>

@@ -13,11 +13,6 @@ function ViewReport (props){
     const [selectedTable, setSelectedTable] = useState();
     const [tableData, setTableData] = useState();
 
-    console.log('selectedTable');
-    console.log(selectedTable);
-    console.log('tableData');
-    console.log(tableData);
-
 
     const loadAvailableTables = () => {
         fetch('./view_report/available_tables').then(res => res.json()).then(data => {
@@ -49,6 +44,7 @@ function ViewReport (props){
                    availableTables= {availableTables}
                    selectedTable= {selectedTable}
                    setSelectedTable= {setSelectedTable}
+                   tableData={tableData}
                />
                <Table tableData={tableData}/>
                <PaggingBlock />

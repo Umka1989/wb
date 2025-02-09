@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS public.report(
 	count_kz integer,
 	count_spb integer,
 	count_volga integer
-    )
+)

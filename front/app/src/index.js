@@ -11,8 +11,8 @@ import Main from './Main';
 import ViewReport from './ViewReport';
 import Login from './Login';
 import Dashboard from "./Dashboard";
-import AdminPage from "./admin/AdminPage";
-import UploadData from "./UploadData";
+import AdminPage from "./AdminPage";
+import UploadDataPage from "./UploadDataPage";
 
 
 const router = createBrowserRouter([
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     { path: "/admin", element: <AdminPage />},
     { path: "/view_report", element: <ViewReport /> },
     { path: "/dashboard", element: <Dashboard /> },
-    { path: "/upload_data", element: <UploadData />}
+    { path: "/upload_data", element: <UploadDataPage />}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

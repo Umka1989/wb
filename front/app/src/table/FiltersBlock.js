@@ -1,7 +1,9 @@
+import React from "react";
 import '../Main.css';
+import styles from "./FiltersBlock.module.css";
+
 import SrcDataToggle from './SrcDataToggle';
 import SrcTablePicker from "./SrcTablePicker";
-import React from "react";
 
 
 function FiltersBlock (props){
@@ -17,9 +19,11 @@ function FiltersBlock (props){
                 />
             </div>
             <div className={'right'}>
-                <button>Столбцы</button>
-                <button>Фильтры</button>
-                <button>Скачать</button>
+                <button
+                    className={styles.button}
+                >Столбцы</button>
+                <button className={styles.button}>Фильтры</button>
+                <button className={styles.button}>Скачать</button>
             </div>
             <div className={'clearFix'}></div>
         </div>
