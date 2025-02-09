@@ -4,7 +4,9 @@ from app import config
 
 tables = {
     'sales': open('./app/sqls/select/selectSales.sql', 'r').read(),
-    'assets':   open('./app/sqls/select/selectAssets.sql', 'r').read()
+    'assets':   open('./app/sqls/select/selectAssets.sql', 'r').read(),
+    'availableTables': open('./app/sqls/select/selectAvailableTables.sql', 'r').read(),
+    'users': open('./app/sqls/select/selectUsers.sql', 'r').read()
 }
 
 
@@ -49,11 +51,13 @@ def getTableData(script, headerScript, countScript, offset, count):
         return data
 
 def getAvailableTables():
-    script = open('./app/sqls/select/selectAvailableTables.sql', 'r').read()
+    script = tables['availableTables']
     return executeQuery('many', script)
 
-def getTableData(table):
-    return executeQuery('many', tables[table])
+def getTableData(count_, table):
+    return executeQuery(count_, tables[table])
+
+
 
 
 

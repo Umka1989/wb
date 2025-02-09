@@ -1,5 +1,5 @@
 from app import app, db
-from flask import redirect, session, url_for, request, send_from_directory, jsonify
+from flask import redirect, session, jsonify
 from functools import wraps
 
 
@@ -18,10 +18,7 @@ def sessionRequired(function):
 @app.route('/login')
 def login():
     # TODO записывать ид в сессию
-    data = {
-        'clientId': 1,
-        'errors': []
-    }
+
     return jsonify(data)
 
 
@@ -31,7 +28,7 @@ def mainPage():
 
 @app.route('/view_report/data/<table>')
 def viewReport(table):
-    result = db.getTableData(table)
+    result = db.getTableData('many', table)
     return jsonify(result[1])
 
 @app.route('/view_report/available_tables')
