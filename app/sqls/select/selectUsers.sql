@@ -1,1 +1,0 @@
-select id, login, passwrd, role from users where login = '{0}';

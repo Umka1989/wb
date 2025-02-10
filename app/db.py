@@ -5,8 +5,7 @@ from app import config
 tables = {
     'sales': open('./app/sqls/select/selectSales.sql', 'r').read(),
     'assets':   open('./app/sqls/select/selectAssets.sql', 'r').read(),
-    'availableTables': open('./app/sqls/select/selectAvailableTables.sql', 'r').read(),
-    'users': open('./app/sqls/select/selectUsers.sql', 'r').read()
+    'availableTables': open('./app/sqls/select/selectAvailableTables.sql', 'r').read()
 }
 
 
@@ -24,7 +23,7 @@ def executeQuery(type_, script):
         with conn.cursor() as cur:
             if type_ == 'script':
                 cur.execute(script)
-                result = (True,)
+                result = (True, cur.rowcount)
             elif type_ == 'one':
                 cur.execute(script)
                 result = (True, {'data': cur.fetchone(), 'headers':[desc[0] for desc in cur.description]})
@@ -44,7 +43,6 @@ def getTableData(script, headerScript, countScript, offset, count):
             'data': df.to_dict(orient='dict'),
             'offset': offset+count,
             'totalCount': executeQuery('one', countScript)[0],
-            """"""
             'header': header
         }
 

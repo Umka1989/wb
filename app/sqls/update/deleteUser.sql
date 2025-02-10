@@ -1,0 +1,1 @@
+update users set is_deleted = true where id = '{0}';

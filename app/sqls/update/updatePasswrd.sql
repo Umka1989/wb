@@ -1,1 +1,1 @@
-update users set passwrd = '{0}' where login = '{1}';
+update users set passwrd = '{1}' where login = '{0}';

@@ -9,7 +9,7 @@ import {
 
 import Main from './Main';
 import ViewReport from './ViewReport';
-import Login from './Login';
+import LoginPage from './LoginPage';
 import Dashboard from "./Dashboard";
 import AdminPage from "./AdminPage";
 import UploadDataPage from "./UploadDataPage";
@@ -17,7 +17,7 @@ import UploadDataPage from "./UploadDataPage";
 
 const router = createBrowserRouter([
     { path: "/", element: <Main /> },
-    { path: "/login", element: <Login /> },
+    { path: "/login", element: <LoginPage /> },
     { path: "/admin", element: <AdminPage />},
     { path: "/view_report", element: <ViewReport /> },
     { path: "/dashboard", element: <Dashboard /> },
