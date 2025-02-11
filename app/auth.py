@@ -2,8 +2,9 @@ from app import db
 import hashlib
 
 def authentificate(login, passw):
-    script = db.tables['users'].format(login)
-    result, clientData = db.getTableData('one', script)
+    script = open('./app/sqls/select/selectOneuser.sql', 'r').read().format(login)
+    result, clientData = db.executeQuery('one', script)
+    print(clientData)
     passwHash = hashlib.sha256(passw.encode('utf-8')).hexdigest()
     if (result):
         if (passwHash == clientData[2]) :

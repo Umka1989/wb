@@ -2,7 +2,6 @@ import React from "react";
 import '../Main.css';
 import styles from "./FiltersBlock.module.css";
 
-import SrcDataToggle from './SrcDataToggle';
 import SrcTablePicker from "./SrcTablePicker";
 
 

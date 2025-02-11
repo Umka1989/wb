@@ -1,0 +1,1 @@
+select * from users where login = '{}' and is_deleted = false

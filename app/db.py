@@ -35,7 +35,7 @@ def executeQuery(type_, script):
             return result
 
 
-def getTableData(script, headerScript, countScript, offset, count):
+def getTableDataOld(script, headerScript, countScript, offset, count):
     with connect() as conn:
         df = pd.read_sql_query(script, conn)
         header = executeQuery('one', headerScript)[0]
@@ -49,13 +49,21 @@ def getTableData(script, headerScript, countScript, offset, count):
         return data
 
 def getAvailableTables():
-    script = tables['availableTables']
+    script = open('./app/sqls/select/selectAvailableTables.sql', 'r').read()
     return executeQuery('many', script)
 
-def getTableData(count_, table):
-    return executeQuery(count_, tables[table])
+def getTableData(table):
+    return executeQuery('many', tables[table])
 
+def getTableHeaders(table, attributes):
+    attributesAsString = ', '.join(["'" + str(each) + "'" for each in attributes])
+    script =open('./app/sqls/select/selectHeaders.sql','r').read().format(table, attributesAsString)
+    return executeQuery('many', script)
 
+def getMainReport(type_):
+    script = open('./app/sqls/select/selectReport.sql', 'r').read().format(type_)
+    print(script)
+    return executeQuery('many', script)
 
 
 

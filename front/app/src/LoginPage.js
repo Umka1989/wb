@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import cn from 'classnames';
 import './Main.css';
 import styles from './Login.module.css';
@@ -9,6 +10,32 @@ function LoginPage (props){
     const [login, setLogin] = useState('');
     const [psswrd, setPsswrd] = useState('');
     const [psswrdCheck, setPsswrdCheck] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSendForm = () => {
+        const url = formType ? './login' : './register';
+        if (formType === 'register' && psswrd !== psswrdCheck){
+            setErrorMessage('Введённые пароли не равны');
+        } else if (formType === 'register' && (login==='' || psswrd === '' || psswrdCheck === '')) {
+            setErrorMessage('Заполнены не все поля');
+        } else if (formType === 'login' && (login==='' || psswrd === '' )) {
+            setErrorMessage('Заполнены не все поля');
+        } else {
+            fetch(url, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        'login': login,
+                        'psswrd': psswrd,
+                        'psswrdCheck': psswrdCheck
+                    })
+                }).then(res => res.ok).then(data => {
+                console.log(data);
+            });
+        }
+    }
 
 
     return (
@@ -45,7 +72,7 @@ function LoginPage (props){
                     onChange={(e) => setPsswrdCheck(e.target.value)}
                     value={psswrdCheck}
                 /></label>}
-                <button>Войти</button>
+                <button onClick={handleSendForm}>Войти</button>
             </div>
         </div>
     )
