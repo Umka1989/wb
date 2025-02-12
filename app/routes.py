@@ -33,6 +33,7 @@ def register():
 def users(id):
     if (request.method=='GET'):
         result, data = auth.getUsersList()
+        print(data)
         return jsonify(data)
     elif (request.method=='POST'):
         return jsonify('ok')

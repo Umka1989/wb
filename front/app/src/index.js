@@ -13,6 +13,7 @@ import LoginPage from './LoginPage';
 import Dashboard from "./Dashboard";
 import AdminPage from "./AdminPage";
 import UploadDataPage from "./UploadDataPage";
+import UserCard from "./UserCard";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
     { path: "/admin", element: <AdminPage />},
     { path: "/view_report", element: <ViewReport /> },
     { path: "/dashboard", element: <Dashboard /> },
-    { path: "/upload_data", element: <UploadDataPage />}
+    { path: "/upload_data", element: <UploadDataPage />},
+    { path: "/user_card(/:id)", element: <UserCard />}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

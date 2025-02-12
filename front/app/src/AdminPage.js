@@ -6,8 +6,7 @@ function AdminPage (props){
     return (
        <div>
            <Header />
-                <AdminBlock />
-
+           <AdminBlock />
        </div>
     )
 }
