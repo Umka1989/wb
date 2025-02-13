@@ -16,6 +16,9 @@ function SectionPicker(props){
             <li>
                 <button value={'audit'} onClick={handleClick}>Аудит</button>
             </li>
+            <li>
+                <button value={'scheduler'} onClick={handleClick}>Настройка расписания</button>
+            </li>
         </ul>
     )
 }

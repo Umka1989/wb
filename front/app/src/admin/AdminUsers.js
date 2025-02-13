@@ -19,8 +19,8 @@ function AdminUsers (props){
     useEffect(() => {
         loadUsers();
     }, []);
-
-    if (usersList['data'].length > 0){
+    console.log(usersList);
+    if (usersList['data']){
         usersList['data'].forEach((each)=>{
             usersListToShow.push(<tr>
                 <td>{each[0] === null ? '-' : each[0]}</td>

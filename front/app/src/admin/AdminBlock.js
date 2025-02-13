@@ -4,6 +4,7 @@ import AdminAudit from "./AdminAudit";
 import AdminUsers from "./AdminUsers";
 import AdminDataUpload from "./AdminDataUpload";
 import SectionPicker from './SectionPicker';
+import AdminScheduler from './AdminScheduler';
 
 
 function AdminBlock(props){
@@ -17,6 +18,8 @@ function AdminBlock(props){
     } else if (selectedSection === 'users'){
         componentToRender = <AdminUsers setSection={setSection}/>
     } else if (selectedSection === 'upload'){
+        componentToRender = <AdminDataUpload setSection={setSection}/>
+    } else if (selectedSection === 'scheduler'){
         componentToRender = <AdminDataUpload setSection={setSection}/>
     } else {
         componentToRender = <SectionPicker setSection={setSection}/>
